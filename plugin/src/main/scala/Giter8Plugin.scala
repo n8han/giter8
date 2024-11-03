@@ -71,7 +71,7 @@ object Giter8Plugin extends sbt.AutoPlugin {
     },
     g8 / aggregate := false,
     g8 / unmanagedSourceDirectories := {
-      val dir1 = (sourceDirectory.value / "g8").get
+      val dir1 = (sourceDirectory.value / "g8").get()
       if (dir1.nonEmpty) dir1
       else List(baseDirectory.value)
     },
@@ -82,7 +82,7 @@ object Giter8Plugin extends sbt.AutoPlugin {
     },
     g8 / target := { target.value / "g8" },
     g8 / g8PropertiesFile := {
-      val propertiesLoc0 = ((g8 / unmanagedSourceDirectories).value / "default.properties").get.headOption
+      val propertiesLoc0 = ((g8 / unmanagedSourceDirectories).value / "default.properties").get().headOption
       val propertiesLoc1: Option[File] =
         Some((LocalRootProject / baseDirectory).value / "project" / "default.properties")
       (propertiesLoc0 orElse propertiesLoc1).get
