@@ -39,6 +39,7 @@ object Dependencies {
       case _            => "2.2.0"
     }
   }
+  val slf4jsimple  = "org.slf4j" % "slf4j-simple" % "1.7.36"
   val logback      = "ch.qos.logback" % "logback-classic" % "1.2.3"
   val coursier     = "io.get-coursier" %% "coursier" % "2.1.13"
   val launcherIntf = "org.scala-sbt" % "launcher-interface" % "1.4.4"
