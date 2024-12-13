@@ -71,7 +71,10 @@ lazy val app = (project in file("app"))
     csRun / sourceDirectory := {
       (baseDirectory).value.getParentFile / "src" / "main" / "conscript"
     },
-    libraryDependencies += launcherIntf
+    libraryDependencies ++= List(
+      launcherIntf,
+      slf4jsimple
+    )
   )
 
 lazy val crossSbt = Seq(
@@ -157,14 +160,14 @@ lazy val lib = (project in file("library"))
     libraryDependencies ++= Seq(
       stringTemplate,
       jgit,
+      slf4jsimple,
       commonsIo,
       plexusArchiver,
       scalaXml,
       parserCombinator(scalaVersion.value),
       scalacheck % Test,
       sbtIo % Test,
-      scalamock % Test,
-      "org.slf4j" % "slf4j-simple" % "1.7.36" % Test
+      scalamock % Test
     ),
     Test / testOptions += Tests.Argument(TestFrameworks.ScalaCheck, "-minSuccessfulTests", "1000", "-workers", "10")
   )
@@ -179,6 +182,7 @@ lazy val launcher = (project in file("launcher"))
     crossScalaVersions := List(scala212, scala213, scala3),
     libraryDependencies ++= Seq(
       coursier,
+      slf4jsimple,
       verify % Test,
       sbtIo % Test
     ),
