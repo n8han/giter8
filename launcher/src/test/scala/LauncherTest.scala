@@ -2,7 +2,7 @@ package testpkg
 
 import giter8._
 import verify._
-import java.io.File
+import java.io.{ByteArrayOutputStream, File, PrintStream}
 import sbt.io.IO
 
 object LauncherTest extends BasicTestSuite {
@@ -22,12 +22,30 @@ object LauncherTest extends BasicTestSuite {
     }
   }
 
-  /*
-  test("runs git@github.com:scala/scala-seed.g8.git") {
-    IO.withTemporaryDirectory { dir =>
-      launcher.run(Array("git@github.com:scala/scala-seed.g8.git", "--name=hello"), dir)
-      assert((dir / "hello" / "build.sbt").exists)
+  test("log scala/scala-seed.g8") {
+    val (r, err) = withErr {
+      IO.withTemporaryDirectory { dir =>
+        launcher.run(Array("scala/scala-seed.g8", "--name=hello"), dir)
+        assert((dir / "hello" / "build.sbt").exists)
+      }
     }
+    assert(!err.contains("SLF4J"))
   }
-   */
+
+  def withErr[A1](f: => A1): (A1, String) = {
+    val originalErr           = System.err
+    val byteArrayOutputStream = new ByteArrayOutputStream()
+    val inMemoryPrintStream   = new PrintStream(byteArrayOutputStream)
+    val result =
+      try {
+        System.setErr(inMemoryPrintStream)
+        val r = f
+        inMemoryPrintStream.flush()
+        r
+      } finally {
+        System.setErr(originalErr)
+      }
+    (result, byteArrayOutputStream.toString)
+  }
+
 }
