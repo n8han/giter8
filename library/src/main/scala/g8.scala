@@ -378,7 +378,7 @@ object G8 {
   def transformProps(props: G8.OrderedProperties): Either[String, G8.OrderedProperties] =
     Maven.lookup(props)
 
-  /** Extract params, template files, and scaffolding folder based on the conventionnal project structure
+  /** Extract params, template files, and scaffolding folder based on the conventional project structure
     */
   private[giter8] def fetchInfo(
       baseDirectory: File,
