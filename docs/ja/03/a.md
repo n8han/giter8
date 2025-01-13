@@ -40,6 +40,6 @@ Giter8 は、テンプレートフィールドをフォーマットする方法�
 
 ファイルやディレクトリ名にフォーマットオプションを渡すにはアンダースコアを 2つつなげたものを使う。
 例えば、`\$organization__packaged\$` という名前のついたディレクトリは、組み込みの `package` フィールド同様に
-`org.somewhere` を `org/somewher` に変換する。
+`org.somewhere` を `org/somewhere` に変換する。
 `\$name__Camel\$.scala` という名前のついたファイルは、`name` が `awesome project` であるとき、
 `AwesomeProject.scala` というファイルを生成する。
