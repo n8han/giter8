@@ -147,7 +147,7 @@ object Giter8Plugin extends sbt.AutoPlugin {
         val metadir = (LocalRootProject / baseDirectory).value / "project"
         val file0   = dir / "g8" / "test"
 
-        // we should only use file0 if its an exisiting file
+        // we should only use file0 if its an existing file
         // if it exists and is a dir we should fallback to test.script
         val defaultTestScript =
           if (file0.isDirectory) dir / "g8" / "test.script"

@@ -27,7 +27,7 @@ paste stack trace here, if any.
 
 ## expectation
 
-<!-- Describe what you think should've happened. -->
+<!-- Describe what you think should have happened. -->
 
 ## notes
 

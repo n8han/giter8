@@ -37,7 +37,7 @@ addSbtPlugin("org.foundweekends.giter8" % "sbt-giter8" % "$version$")
 ```
 
 이 플러그인이 설정된 템플릿 기반 디렉토리에서 sbt 쉘에 들어가면 `g8Test` 라는 액션에서 
-기본 출력 디렉토리 (`target/sbt-test`)에 템플릿이 적용되어 해당 프로젝트에 대해 [scriptted test][scripted] 를 fork된 프로세스에서 실행 한다. 
+기본 출력 디렉토리 (`target/sbt-test`)에 템플릿이 적용되어 해당 프로젝트에 대해 [scripted test][scripted] 를 fork된 프로세스에서 실행 한다. 
 테스트 스크립트는`project/giter8.test`또는 `src/test/g8/test`로 제공 할 수있습니다. 만약 없으면 `>test`가 사용됩니다.
 특히 sbt 프로젝트를 생성하는 템플릿은 이 방법으로 테스트 할 수 있을 것입니다.
 
