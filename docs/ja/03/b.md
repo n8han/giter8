@@ -39,7 +39,7 @@ addSbtPlugin("org.foundweekends.giter8" % "sbt-giter8" % "$version$")
 
 このプラグインが設定されたテンプレートのベースディレクトリから sbt のシェルに入ると、
 `g8Test` というアクションでデフォルトのアウトプットディレクトリ (`target/sbt-test`)
-内にテンプレートが適用されて、そのプロジェクトに対して[scriptted test][scripted] がフォークプロセスで実行される。
+内にテンプレートが適用されて、そのプロジェクトに対して[scripted test][scripted] がフォークプロセスで実行される。
 テストスクリプトは `project/giter8.test` もしくは `src/test/g8/test` として提供できる。
 もし無ければ `>test` が使用される。
 特に sbt プロジェクトを生成するテンプレートはこの方法でテストできるはずだ。
