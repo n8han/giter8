@@ -179,7 +179,7 @@ object G8 {
           write(out, FileUtils.readFileToString(in, "UTF-8"), parameters /*, append*/ )
           Try(ArchiveEntryUtils.chmod(out, mode))
         case None =>
-          // PlexusIoResourceAttributes is not available for some OS'es such as windows
+          // PlexusIoResourceAttributes is not available for some OS's such as windows
           write(out, FileUtils.readFileToString(in, "UTF-8"), parameters /*, append*/ )
       }
     } catch {
