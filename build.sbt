@@ -21,6 +21,8 @@ ThisBuild / scalacOptions ++= {
   scalaBinaryVersion.value match {
     case "3" =>
       Nil
+    case "2.13" =>
+      Seq("-Xsource:3-cross")
     case _ =>
       Seq("-Xsource:3")
   }
