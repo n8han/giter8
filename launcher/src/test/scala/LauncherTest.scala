@@ -6,7 +6,7 @@ import java.io.{ByteArrayOutputStream, File, PrintStream}
 import sbt.io.IO
 
 object LauncherTest extends BasicTestSuite {
-  lazy val launcher = new Runner {
+  object launcher extends Runner {
     def run(args: Array[String], workingDirectory: File): Int = {
       run(args, workingDirectory, new LauncherProcessor)
     }
